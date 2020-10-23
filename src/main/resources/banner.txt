@@ -1,0 +1,8 @@
+COMMON-WEB-DEMO
+
+Customized framework with Spring Boot.
+ :: Spring Boot ${AnsiColor.GREEN} ${spring-boot.formatted-version} ${AnsiColor.DEFAULT}
+
+Smilegate Java Application.
+ :: Application Name: ${server.name}
+ :: Application Environment: ${spring.profiles.active}

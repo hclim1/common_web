@@ -131,8 +131,51 @@
 	</profiles>
 
 	<build>
+		<defaultGoal>install</defaultGoal>
+		<finalName>ROOT</finalName>
+
 		<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
 		<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+
+		<resources>
+			<resource>
+				<directory>src/main/kotlin</directory>
+				<includes>
+					<include>**/*.kt</include>
+				</includes>
+			</resource>
+
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.kt</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources-${deployTarget}/</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.kt</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/kotlin</directory>
+				<excludes>
+					<exclude>**/*.kt</exclude>
+				</excludes>
+			</testResource>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

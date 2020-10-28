@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<property name="LOGS_ABSOLUTE_PATH" value="D:/smilegate/logs" />
+	<property name="LOGS_ABSOLUTE_PATH" value="C:/logs" />
 	<property name="SERVICE_NAME" value="common_web"/>
 	<appender name="STDOUT"
 		class="ch.qos.logback.core.ConsoleAppender">

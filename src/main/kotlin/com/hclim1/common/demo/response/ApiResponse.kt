@@ -5,7 +5,9 @@ import lombok.Setter;
 
 
 class ApiResponse<T>(
-		private var item: T,
-		private var message: String = "",
-		private var isSuccess: Boolean = false
-)
+		var item: T,
+		var message: String = "",
+		var isSuccess: Boolean = false
+){
+}
+

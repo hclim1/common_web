@@ -6,7 +6,7 @@ class Example(var firstName : String,
 			  var age : Int){
 
 	//Custom Getter
-	val fullName : String
+	private val fullName : String
 		get() {
 			return firstName + lastName;
 		}

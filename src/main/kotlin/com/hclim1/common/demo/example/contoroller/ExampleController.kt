@@ -1,7 +1,9 @@
 package com.hclim1.common.demo.example.contoroller
 
 import com.hclim1.common.demo.example.domain.Example
+import com.hclim1.common.demo.example.service.ExampleService
 import com.smilegate.general.mgt.common.ApiResponse
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -12,17 +14,16 @@ import org.springframework.web.bind.annotation.RestController
 class ExampleController {
 
 
+	@Autowired
+	private lateinit var exampleServcie: ExampleService
+
 	@GetMapping("/data")
-	fun getFullName() : ApiResponse<Example?> {
-		var example : Example? = null
-		val result : ApiResponse<Example?>
-		result = ApiResponse(example,"조회", false)
-		return result
+	fun getData(): ApiResponse<Example?> {
+		return exampleServcie.getData();
 	}
 
-
 	@GetMapping("")
-	fun getExample(): String {
+	fun getHelloWorld(): String {
 		return "Hello World"
 	}
 }

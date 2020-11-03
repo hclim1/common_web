@@ -2,7 +2,7 @@ package com.hclim1.common.demo.example.contoroller
 
 import com.hclim1.common.demo.example.domain.Example
 import com.hclim1.common.demo.example.service.ExampleService
-import com.smilegate.general.mgt.common.ApiResponse
+import com.hclim1.common.demo.response.ApiResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping

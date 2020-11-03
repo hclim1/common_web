@@ -1,7 +1,4 @@
-package com.smilegate.general.mgt.common;
-
-import lombok.Getter;
-import lombok.Setter;
+package com.hclim1.common.demo.response
 
 
 class ApiResponse<T>(

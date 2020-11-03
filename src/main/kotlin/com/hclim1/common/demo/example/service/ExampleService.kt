@@ -1,7 +1,7 @@
 package com.hclim1.common.demo.example.service
 
 import com.hclim1.common.demo.example.domain.Example
-import com.smilegate.general.mgt.common.ApiResponse
+import com.hclim1.common.demo.response.ApiResponse
 import org.springframework.stereotype.Service
 
 @Service

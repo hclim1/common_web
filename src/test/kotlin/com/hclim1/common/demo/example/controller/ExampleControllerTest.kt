@@ -10,9 +10,17 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import org.springframework.util.LinkedMultiValueMap
+
+import org.springframework.util.MultiValueMap
+
+
+
 
 @RunWith(SpringRunner::class)
 @AutoConfigureMockMvc
@@ -26,7 +34,7 @@ class ExampleControllerTest {
 
 	@Test
 	@Throws(Exception::class)
-	fun call_getTaxiPayment_list() {
+	fun get_example_list() {
 
 		//given
 
@@ -35,9 +43,42 @@ class ExampleControllerTest {
 		).andDo(print())
 
 		//then
-		result.andExpect(status().isOk())
-				.andExpect(content().string("Test Example"))
+		result.andExpect(status().isOk)
+				.andExpect(content().string("Hello World"))
 	}
 
+	@Test
+	@Throws(Exception::class)
+	fun get_example_json() {
+
+		//given
+		var key : String = "test"
+		//when
+		val result = mvc.perform(get("/example/data/$key")
+		).andDo(print())
+
+		//then
+		result.andExpect(status().isOk)
+				.andExpect(jsonPath("success").isBoolean)
+				.andExpect(jsonPath("success").value(true))
+				.andExpect(jsonPath("message").value("성공"))
+				.andExpect(jsonPath("item").isNotEmpty)
+	}
+
+
+	@Test
+	@Throws(java.lang.Exception::class)
+	fun add_example_true(){
+		//given
+		val params: MultiValueMap<String, String> = LinkedMultiValueMap()
+		params.add("firstName","Test")
+		params.add("lastName","Last Test")
+		params.add("age","22")
+		//when
+		val result = mvc.perform(post("/example/data")
+				.params(params)
+				).andDo(print())
+		//then
+	}
 
 }

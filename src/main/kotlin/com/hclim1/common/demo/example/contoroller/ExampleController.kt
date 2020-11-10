@@ -16,20 +16,31 @@ class ExampleController {
 	@Autowired
 	private lateinit var exampleServcie: ExampleService
 
-	@GetMapping("/data/{key}")
-	fun getData(@PathVariable key : String): ApiResponse<Example?> {
-		return exampleServcie.getData(key);
-	}
-
 	@GetMapping("")
 	fun getHelloWorld(): String {
 		return "Hello World"
+	}
+
+	@GetMapping("/data/{key}")
+	fun getData(@PathVariable key : String): ApiResponse<Example?> {
+		return exampleServcie.getData(key);
 	}
 
 	@PostMapping("/data")
 	fun addData(example : Example) : ApiResponse<Boolean>{
 		return exampleServcie.addData(example)
 	}
+
+	@PutMapping("/data")
+	fun setData(example: Example) : ApiResponse<Boolean>{
+		return exampleServcie.setData(example)
+	}
+
+	@DeleteMapping("/data/{key}")
+	fun removeData(@PathVariable key : String): ApiResponse<Boolean?> {
+		return exampleServcie.removeData(key)
+	}
+
 }
 
 

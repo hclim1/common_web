@@ -9,8 +9,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
@@ -78,6 +77,33 @@ class ExampleControllerTest {
 		val result = mvc.perform(post("/example/data")
 				.params(params)
 				).andDo(print())
+		//then
+	}
+
+
+	@Test
+	@Throws(java.lang.Exception::class)
+	fun set_example_true(){
+		//given
+		val params: MultiValueMap<String, String> = LinkedMultiValueMap()
+		params.add("firstName","Test")
+		params.add("lastName","Last Test")
+		params.add("age","22")
+		//when
+		val result = mvc.perform(put("/example/data")
+				.params(params)
+		).andDo(print())
+		//then
+	}
+
+	@Test
+	@Throws(java.lang.Exception::class)
+	fun remove_example_true(){
+		//given
+		var key : String = "test"
+		//when
+		val result = mvc.perform(delete("/example/data/$key")
+		).andDo(print())
 		//then
 	}
 

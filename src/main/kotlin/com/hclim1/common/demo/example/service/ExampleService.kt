@@ -25,4 +25,15 @@ class ExampleService {
 		return ApiResponse(true)
 	}
 
+	fun setData(example: Example): ApiResponse<Boolean> {
+		//TODO update example
+		log.info("Example parameter={}",example.toString())
+		return ApiResponse(true)
+	}
+
+	fun removeData(key : String): ApiResponse<Boolean?> {
+		//TODO update example
+		return ApiResponse(true)
+	}
+
 }
